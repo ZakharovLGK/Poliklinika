@@ -1,0 +1,29 @@
+﻿<Page x:Class="Poliklinika.Pages.HistoryList"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Poliklinika.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="HistoryList">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <DataGrid IsReadOnly="True" x:Name="DGridHistory" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Пациент" Binding="{Binding Patients.FullName}"/>
+                <DataGridTextColumn Header="Лечущий врач" Binding="{Binding Doctors.FullName}"/>
+                <DataGridTextColumn Header="Диагноз" Binding="{Binding Diagnoses.Name}"/>
+                <DataGridTextColumn Header="Лечение" Binding="{Binding Heal}"/>
+                <DataGridTextColumn Header="Дата заболевания" Binding="{Binding DateOfDisease, StringFormat=dd/MM/yyyy}"/>
+                <DataGridTextColumn Header="Дата вылечивания" Binding="{Binding Close}"/>
+                <DataGridTextColumn Header="Вид лечения" Binding="{Binding TypeOfHeal}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Назад" x:Name="BtnBack" Click="BtnBack_Click" Width="150" Height="30" BorderBrush="Transparent" Background="AliceBlue" FontWeight="Bold" Grid.Row="1"/>
+    </Grid>
+</Page>
